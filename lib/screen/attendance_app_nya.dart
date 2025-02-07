@@ -26,7 +26,7 @@ class AttendanceAppPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        margin: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.only(bottom: 20),
                         child: InkWell(
                             highlightColor: Colors.transparent,
                             splashColor: Colors.transparent,
@@ -37,30 +37,34 @@ class AttendanceAppPage extends StatelessWidget {
                               children: [
                                 Container(
                                   padding: const EdgeInsets.all(30),
-                                  width: 200,
-                                  height: 200,
-                                  child: Image(image: AssetImage('assets/images/logo_cuti_izin.png')),
+                                  width: 250,
+                                  height: 250,
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                      color: Colors.deepPurpleAccent,
-                                      width: 3
+                                        color: Color(0xff7BD3EA),
+                                        width: 3
                                     ),
                                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                                  )
-                                ),
-                                SizedBox(height: 10,),
-                                Text('Absen Kehadiran', style: GoogleFonts.plusJakartaSans(
-                                  textStyle: TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.bold
                                   ),
-                                ),)
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage('assets/images/logo_absent.png')),
+                                      SizedBox(height: 25,),
+                                      Text('Absen Kehadiran', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),)
+                                    ],
+                                  ),
+                                ),
                               ],
                             )
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.all(20),
+                        // margin: const EdgeInsets.all(20),
                         child:  InkWell(
                             highlightColor: Colors.transparent,
                             splashColor: Colors.transparent,
@@ -70,31 +74,34 @@ class AttendanceAppPage extends StatelessWidget {
                             child: Column(
                               children: [
                                 Container(
-                                    padding: const EdgeInsets.all(30),
-                                    width: 200,
-                                    height: 200,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                          color: Colors.deepPurpleAccent,
-                                          width: 3
-                                      ),
-                                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  padding: const EdgeInsets.all(20),
+                                  width: 250,
+                                  height: 250,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Color(0xff7BD3EA),
+                                        width: 3
                                     ),
-                                    child: Image(image: AssetImage('assets/images/logo_absent.png')),
-                                ),
-                                SizedBox(height: 10,),
-                                Text('Cuti / Izin', style: GoogleFonts.plusJakartaSans(
-                                  textStyle: TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.bold
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
                                   ),
-                                ),)
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage('assets/images/logo_cuti_izin.png'), width: 175,),
+                                      Text('Absen Izin / Cuti', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),)
+                                    ],
+                                  ),
+                                ),
                               ],
                             )
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.all(20),
+                        margin: const EdgeInsets.only(top: 20),
                         child: InkWell(
                             highlightColor: Colors.transparent,
                             splashColor: Colors.transparent,
@@ -105,24 +112,28 @@ class AttendanceAppPage extends StatelessWidget {
                               children: [
                                 Container(
                                     padding: const EdgeInsets.all(30),
-                                    width: 200,
-                                    height: 200,
+                                    width: 250,
+                                    height: 250,
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                          color: Colors.deepPurpleAccent,
+                                          color: Color(0xff7BD3EA),
                                           width: 3
                                       ),
                                       borderRadius: BorderRadius.all(Radius.circular(10)),
                                     ),
-                                    child: Image(image: AssetImage('assets/images/logo_attendance_history.png')),
-                                ),
-                                SizedBox(height: 10,),
-                                Text('Riwayat Kehadiran', style: GoogleFonts.plusJakartaSans(
-                                  textStyle: TextStyle(
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.bold
+                                  child: Column(
+                                    children: [
+                                      Image(image: AssetImage('assets/images/logo_attendance_history.png')),
+                                      SizedBox(height: 25,),
+                                      Text('Riwayat Kehadiran', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            fontSize: 19,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),)
+                                    ],
                                   ),
-                                ),)
+                                ),
                               ],
                             )
                         ),
@@ -142,15 +153,15 @@ Future<bool> _onWillPop(BuildContext context) async{
       context: context,
       builder: (context) => AlertDialog(
         title: const Text("INFO"),
-        content: const Text("Apakah Anda yakin ingin keluar dari aplikasi?"),
+        content: Text("Apakah Anda yakin ingin keluar dari aplikasi?", style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text("Batal"),
+            child: Text("Batal", style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Keluar"),
+            child: Text("Keluar", style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
           )
         ],
       )

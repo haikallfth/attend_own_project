@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class AttendanceHistoryScreen extends StatefulWidget {
   const AttendanceHistoryScreen({super.key});
@@ -17,17 +19,20 @@ class _AttendanceHistoryScreenState extends State<AttendanceHistoryScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Color(0xff7BD3EA),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.blueAccent),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: const Text("Attendence History", style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: Colors.blueAccent
-        ),),
+        title: Text("Attendence History", style: GoogleFonts.plusJakartaSans(
+          textStyle: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white
+          ),
+        )),
       ),
       body: FutureBuilder <QuerySnapshot>(
           future: dataCollection.get(),
@@ -72,93 +77,115 @@ class _AttendanceHistoryScreenState extends State<AttendanceHistoryScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    const Expanded(
+                                    Expanded(
                                       flex: 4,
-                                      child: Text('name', style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14,
+                                      child: Text('name', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                        ),
                                       ),),
                                     ),
-                                    const Expanded(
-                                      child: Text(':', style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 14
-                                      ),),
+                                    Expanded(
+                                      child: Text(':', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14
+                                        ),
+                                      )),
                                       flex: 1,
                                     ),
                                     Expanded(
                                         child: Text(data[index]['name'],
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),)
+                                          style: GoogleFonts.plusJakartaSans(
+                                            textStyle: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                            ),
+                                          ))
                                     ),
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    const Expanded(
+                                    Expanded(
                                       flex: 4,
-                                      child: Text('address le', style: TextStyle(
+                                      child: Text('address le', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
                                         color: Colors.black,
                                         fontSize: 14,
-                                      ),),
+                                      ),
+                                      )),
                                     ),
-                                    const Expanded(
-                                      child: Text(':', style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 14
-                                      ),),
+                                    Expanded(
+                                      child: Text(':', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14
+                                        ),
+                                      )),
                                       flex: 1,
                                     ),
                                     Expanded(
                                         child: Text(data[index]['address'],
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),)
+                                          style: GoogleFonts.plusJakartaSans(
+                                            textStyle: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                            ),
+                                          ))
                                     ),
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    const Expanded(
+                                    Expanded(
                                       flex: 4,
-                                      child: Text('Status lek', style: TextStyle(
+                                      child: Text('Status lek', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
                                         color: Colors.black,
                                         fontSize: 14,
-                                      ),),
+                                      ),
+                                      )),
                                     ),
-                                    const Expanded(
-                                      child: Text(':', style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 14
-                                      ),),
+                                    Expanded(
+                                      child: Text(':', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14
+                                        ),
+                                      )),
                                       flex: 1,
                                     ),
                                     Expanded(
                                         child: Text(data[index]['status'],
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                          ),)
+                                          style: GoogleFonts.plusJakartaSans(
+                                            textStyle: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 14,
+                                            ),
+                                          ),),
                                     ),
                                   ],
                                 ),
                                 Row(
                                   children: [
-                                    const Expanded(
+                                    Expanded(
                                       flex: 4,
-                                      child: Text('dateTime', style: TextStyle(
+                                      child: Text('dateTime', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
                                         color: Colors.black,
                                         fontSize: 14,
-                                      ),),
+                                      ),
+                                      )),
                                     ),
-                                    const Expanded(
-                                      child: Text(':', style: const TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 14
-                                      ),),
+                                    Expanded(
+                                      child: Text(':', style: GoogleFonts.plusJakartaSans(
+                                        textStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14
+                                        ),
+                                      )),
                                       flex: 1,
                                     ),
                                     Expanded(
@@ -178,16 +205,18 @@ class _AttendanceHistoryScreenState extends State<AttendanceHistoryScreen> {
                   );
                 }
               )
-              :const Center(
-                child: Text("Eitss, data gaada lek", style: TextStyle(
-                  fontSize: 20,
-                ),),
+              :Center(
+                child: Text("Eitss, data gaada lek", style: GoogleFonts.plusJakartaSans(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                  ),
+                )),
               );
             }
             else{
               return const Center(
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff7BD3EA)),
                 ),
               );
             }

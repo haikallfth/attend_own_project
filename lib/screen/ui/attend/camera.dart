@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../utils/face_detection/google_ml_kit.dart';
 import 'attend_screen.dart';
@@ -44,23 +45,25 @@ class _CameraScreenState extends State<CameraScreen> {
       }
       setState(() {});
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.camera_enhance_outlined,
               color: Colors.white,
             ),
             Text(
               'Camera not found',
-              style: TextStyle(color: Colors.white),
+              style: GoogleFonts.plusJakartaSans(
+                textStyle: TextStyle(color: Colors.white),
+              ),
             ),
           ],
         ),
         backgroundColor: Colors.blueGrey,
-        shape: StadiumBorder(),
+        shape: const StadiumBorder(),
         behavior: SnackBarBehavior.floating,
-        duration: Duration(seconds: 3),
+        duration: const Duration(seconds: 3),
       ));
     }
   }
@@ -71,15 +74,16 @@ class _CameraScreenState extends State<CameraScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xff7BD3EA),
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
-        title: const Text(
+        title: Text(
           'Capture a selfie image',
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+          style: GoogleFonts.plusJakartaSans(
+            textStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+          )
         ),
       ),
       body: Stack(children: [
@@ -87,8 +91,8 @@ class _CameraScreenState extends State<CameraScreen> {
           width: size.width,
           height: size.height,
           child: controller == null
-              ? const Center(
-            child: Text('camera error'),
+              ? Center(
+            child: Text('camera error', style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
           )
               : !controller!.value.isInitialized
               ? const Center(
@@ -121,20 +125,22 @@ class _CameraScreenState extends State<CameraScreen> {
                 const SizedBox(
                   width: 10,
                 ),
-                const Text(
+                Text(
                   'Make sure your face is cleary visible',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
+                  style: GoogleFonts.plusJakartaSans(
+                    textStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18),
+                  )
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: ClipOval(
                     child: Material(
-                      color: Colors.blueAccent,
+                      color: Color(0xff7BD3EA),
                       child: InkWell(
-                        splashColor: Colors.blue,
+                        splashColor: Colors.lightBlueAccent,
                         onTap: () async {
                           final hasPermission = await handleLocationPermition(context);
                           try {
@@ -158,7 +164,7 @@ class _CameraScreenState extends State<CameraScreen> {
                                   }
                                   else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
+                                      SnackBar(
                                         content: Row(
                                           children: [
                                             Icon(
@@ -167,7 +173,9 @@ class _CameraScreenState extends State<CameraScreen> {
                                             ),
                                             Text(
                                               'Please allow location service',
-                                              style: TextStyle(color: Colors.white),
+                                              style: GoogleFonts.plusJakartaSans(
+                                                textStyle: TextStyle(color: Colors.white)
+                                              ),
                                             )
                                           ],
                                         ),
@@ -206,7 +214,7 @@ class _CameraScreenState extends State<CameraScreen> {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               Icon(
@@ -218,7 +226,7 @@ class _CameraScreenState extends State<CameraScreen> {
               ),
               Text(
                 'Please enable location service',
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
               )
             ],
           ),
@@ -238,7 +246,7 @@ class _CameraScreenState extends State<CameraScreen> {
     }
     if (permission == LocationPermission.deniedForever) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               Icon(
@@ -250,7 +258,7 @@ class _CameraScreenState extends State<CameraScreen> {
               ),
               Text(
                 'Please enable location service',
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
               )
             ],
           ),
@@ -284,7 +292,7 @@ class _CameraScreenState extends State<CameraScreen> {
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Row(
                 children: [
                   Icon(
@@ -297,7 +305,9 @@ class _CameraScreenState extends State<CameraScreen> {
                   Expanded(
                     child: Text(
                       'Face not detected',
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.plusJakartaSans(
+                        textStyle: TextStyle(color: Colors.white)
+                      ),
                     ),
                   ),
                 ],
@@ -319,7 +329,9 @@ class _CameraScreenState extends State<CameraScreen> {
           const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.blueGrey),),
           Container(
             margin: const EdgeInsets.only(left: 10),
-            child: const Text("Checking the data..."),
+            child: Text("Checking the data...", style: GoogleFonts.plusJakartaSans(
+                textStyle: TextStyle(color: Colors.white)
+            ),),
           )
         ],
       ),

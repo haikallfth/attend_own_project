@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                 text: 'Attendance\n',
                 style: GoogleFonts.plusJakartaSans(
                   textStyle: const TextStyle(
-                    fontSize: 40,
+                    fontSize: 50,
                     color: Color(0xff7BD3EA),
                     fontWeight: FontWeight.bold,
                   ),

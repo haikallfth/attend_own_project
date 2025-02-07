@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'camera.dart';
 
@@ -41,14 +42,16 @@ class _AttendScreenState extends State<AttendScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xff7BD3EA),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text(
+        title: Text(
           "Attendance Menu",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+          style: GoogleFonts.plusJakartaSans(
+            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -69,25 +72,29 @@ class _AttendScreenState extends State<AttendScreen> {
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
-                  color: Colors.blueAccent,
+                  color: Color(0xff7BD3EA),
                 ),
-                child: const Row(
+                child: Row(
                   children: [
                     SizedBox(width: 12),
                     Icon(Icons.face_retouching_natural_outlined, color: Colors.white),
                     SizedBox(width: 12),
                     Text(
                       "Please make a selfie photo!",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                      style: GoogleFonts.plusJakartaSans(
+                          textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)
+                      ),
                     ),
                   ],
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.fromLTRB(10, 20, 0, 20),
                 child: Text(
                   "Capture Photo",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: GoogleFonts.plusJakartaSans(
+                      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xff7BD3EA))
+                  ),
                 ),
               ),
               GestureDetector(
@@ -104,7 +111,7 @@ class _AttendScreenState extends State<AttendScreen> {
                   child: DottedBorder(
                     radius: const Radius.circular(10),
                     borderType: BorderType.RRect,
-                    color: Colors.blueAccent,
+                    color: Color(0xff7BD3EA),
                     strokeWidth: 1,
                     dashPattern: const [5, 5],
                     child: SizedBox.expand(
@@ -113,7 +120,7 @@ class _AttendScreenState extends State<AttendScreen> {
                           ? Image.file(File(image!.path), fit: BoxFit.cover,)
                           :const Icon(
                             Icons.camera_enhance_outlined,
-                            color: Colors.blueAccent,
+                            color: Color(0xff7BD3EA),
                           ),
                       ),
                     ),
@@ -130,28 +137,30 @@ class _AttendScreenState extends State<AttendScreen> {
                     contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                     labelText: "Your Name",
                     hintText: "Please enter your name",
-                    hintStyle: const TextStyle(fontSize: 14, color: Colors.grey),
-                    labelStyle: const TextStyle(fontSize: 14, color: Colors.black),
+                    hintStyle: TextStyle(fontSize: 14, color: Colors.grey, fontFamily: GoogleFonts.plusJakartaSans().fontFamily),
+                    labelStyle: TextStyle(fontSize: 14, color: Colors.black, fontFamily: GoogleFonts.plusJakartaSans().fontFamily),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.blueAccent),
+                      borderSide: const BorderSide(color: Color(0xff7BD3EA)),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(color: Colors.blueAccent),
+                      borderSide: const BorderSide(color: Color(0xff7BD3EA)),
                     ),
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: Text(
                   "Your Location",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+                  style: GoogleFonts.plusJakartaSans(
+                    textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xff7BD3EA))
+                  ),
                 ),
               ),
               isLoading
-                  ? const Center(child: CircularProgressIndicator(color: Colors.blueAccent),)
+                  ? const Center(child: CircularProgressIndicator(color: Color(0xff7BD3EA)),)
                   : Padding(
                     padding: const EdgeInsets.all(10),
                     child: SizedBox(height: 120,
@@ -162,7 +171,7 @@ class _AttendScreenState extends State<AttendScreen> {
                             alignLabelWithHint: true,
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: const BorderSide(color: Colors.blueAccent),
+                              borderSide: const BorderSide(color: Color(0xff7BD3EA)),
                             ),
                             hintText: strAddress.isNotEmpty ? strAddress : 'Your Location',
                             hintStyle: const TextStyle(fontSize: 14, color: Colors.grey),
@@ -187,14 +196,14 @@ class _AttendScreenState extends State<AttendScreen> {
                     ),
                     child: Material(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueAccent,
+                      color: Color(0xff7BD3EA),
                       child: InkWell(
-                        splashColor: Colors.blue,
+                        splashColor: Colors.lightBlueAccent,
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {
                           if(image == null || controllerName.text.isEmpty){
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
+                              SnackBar(
                                   content: Row(
                                     children: [
                                       Icon(
@@ -204,7 +213,9 @@ class _AttendScreenState extends State<AttendScreen> {
                                       SizedBox(width: 10,),
                                       Text(
                                         "oitt lee isi form nya dulu lee",
-                                        style: TextStyle(color: Colors.white),
+                                        style: GoogleFonts.plusJakartaSans(
+                                          textStyle: TextStyle(color: Colors.white),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -218,10 +229,12 @@ class _AttendScreenState extends State<AttendScreen> {
                             submitAbsen(strAddress, controllerName.text.toString(), strStatus);
                           }
                         },
-                        child: const Center(
+                        child: Center(
                           child: Text(
                             "Report Now",
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            style: GoogleFonts.plusJakartaSans(
+                              textStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+                            ),
                           ),
                         ),
                       ),
@@ -239,7 +252,7 @@ class _AttendScreenState extends State<AttendScreen> {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if(!serviceEnabled){
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Row(
+          SnackBar(content: Row(
             children: [
               Icon(
                 Icons.location_off,
@@ -248,7 +261,9 @@ class _AttendScreenState extends State<AttendScreen> {
               SizedBox(width: 10,),
               Text(
                 "Please enable location service",
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.plusJakartaSans(
+                  textStyle: TextStyle(color: Colors.white)
+                ),
               ),
             ],
           ),
@@ -263,7 +278,7 @@ class _AttendScreenState extends State<AttendScreen> {
       permission = await Geolocator.requestPermission();
       if(permission == LocationPermission.denied) {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Row(
+            SnackBar(content: Row(
               children: [
                 Icon(
                   Icons.location_off,
@@ -272,7 +287,9 @@ class _AttendScreenState extends State<AttendScreen> {
                 SizedBox(width: 10,),
                 Text(
                   "Location permission are denied. Please enable location service",
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.plusJakartaSans(
+                    textStyle: TextStyle(color: Colors.white)
+                  ),
                 ),
               ],
             ),
@@ -284,7 +301,7 @@ class _AttendScreenState extends State<AttendScreen> {
     }
     if (permission == LocationPermission.deniedForever){
       ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Row(
+          SnackBar(content: Row(
             children: [
               Icon(
                 Icons.location_off,
@@ -293,7 +310,9 @@ class _AttendScreenState extends State<AttendScreen> {
               SizedBox(width: 10,),
               Text(
                 "Location permission are denied forever. Please enable location service",
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.plusJakartaSans(
+                  textStyle: TextStyle(color: Colors.white)
+                ),
               ),
             ],
           ),
@@ -355,7 +374,7 @@ class _AttendScreenState extends State<AttendScreen> {
           const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.blueGrey),),
           Container(
             margin: const EdgeInsets.only(left: 10),
-            child: const Text("Checking the data..."),
+            child:  Text("Checking the data...", style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
           )
         ],
       ),
@@ -365,8 +384,7 @@ class _AttendScreenState extends State<AttendScreen> {
         context: context,
         builder: (BuildContext context) {
           return alert;
-        }
-        );
+        });
   }
   Future<void> submitAbsen(String address, String name, String status) async {
     showLoaderDialog(context);
@@ -380,7 +398,7 @@ class _AttendScreenState extends State<AttendScreen> {
       setState(() {
         try {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Row(
                 children: [
                   Icon(
@@ -390,7 +408,7 @@ class _AttendScreenState extends State<AttendScreen> {
                   SizedBox(width: 10),
                   Text(
                     "Absen Berhasil",
-                    style: TextStyle(color: Colors.white),
+                    style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
                   )
                 ],
               ),
@@ -402,7 +420,7 @@ class _AttendScreenState extends State<AttendScreen> {
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const AttendScreen()));
         } catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Row(
                 children: [
                   Icon(
@@ -412,7 +430,7 @@ class _AttendScreenState extends State<AttendScreen> {
                   SizedBox(width: 10),
                   Text(
                     "Absen Gagal",
-                    style: TextStyle(color: Colors.white),
+                    style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
                   )
                 ],
               ),
@@ -425,7 +443,7 @@ class _AttendScreenState extends State<AttendScreen> {
       });
     }).catchError((e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Row(
             children: [
               Icon(
@@ -435,7 +453,7 @@ class _AttendScreenState extends State<AttendScreen> {
               SizedBox(width: 10),
               Text(
                 "Absen Gagal",
-                style: TextStyle(color: Colors.white),
+                style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
               )
             ],
           ),

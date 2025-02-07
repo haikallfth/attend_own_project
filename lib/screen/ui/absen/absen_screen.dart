@@ -5,6 +5,8 @@ import 'package:cross_file/src/types/interface.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class AbsenScreen extends StatefulWidget {
   const AbsenScreen({super.key});
@@ -26,14 +28,16 @@ class _AbsenScreenState extends State<AbsenScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xff7BD3EA),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text(
+        title: Text(
           "Request izin le",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+          style: GoogleFonts.plusJakartaSans(
+            textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+          )
         ),
       ),
       body: SingleChildScrollView(
@@ -49,69 +53,77 @@ class _AbsenScreenState extends State<AbsenScreen> {
               Container(
                 height: 50,
                 decoration: const BoxDecoration(
-                  color: Colors.blueAccent,
+                  color: Color(0xff7BD3EA),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   )
                 ),
-                child: const Row(
+                child: Row(
                   children: [
                     SizedBox(width: 12,),
-                    Icon(Icons.maps_home_work_outlined),
+                    Icon(Icons.maps_home_work_outlined, color: Color(0xffF1FAEE),),
                     SizedBox(width: 12,),
-                    Text("le le ayolah isi formnya le", style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
-                    ),
+                    Text("le le ayolah isi formnya le", style: GoogleFonts.plusJakartaSans(
+                      textStyle: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                      ),
+                    )
                     ),
 
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(10,20,10,20),
+                padding: EdgeInsets.fromLTRB(10,20,10,20),
                 child: TextField(
                   controller: controllerName,
                   keyboardType: TextInputType.text,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
                     labelText: "Nama lu le",
-                    labelStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 14
+                    labelStyle: GoogleFonts.plusJakartaSans(
+                      textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: 14
+                      ),
                     ),
                     hintText: "Field your name bro",
-                    hintStyle: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
+                    hintStyle: GoogleFonts.plusJakartaSans(
+                      textStyle: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
-                        color: Colors.blueAccent,
+                        color: Color(0xff7BD3EA),
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: const BorderSide(
-                        color: Colors.blue
+                        color: Colors.lightBlueAccent
                       ),
                     ),
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                   padding: EdgeInsets.all(10),
                   child: Text(
                     "Deskripsi",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black
-                    ),
+                    style: GoogleFonts.plusJakartaSans(
+                      textStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff7BD3EA)
+                      ),
+                    )
                   ),
               ),
               Padding(
@@ -122,7 +134,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Colors.blueAccent,
+                      color: Color(0xff7BD3EA),
                       width: 1.0
                     ),
                   ),
@@ -133,7 +145,9 @@ class _AbsenScreenState extends State<AbsenScreen> {
                       return DropdownMenuItem(
                         value: value,
                         child: Text(value.toString(),
-                          style: const TextStyle(fontSize: 14, color: Colors.black),
+                          style: GoogleFonts.plusJakartaSans(
+                            textStyle: TextStyle(fontSize: 14, color: Colors.black)
+                          ),
                         ),
                         );
                       }).toList(),
@@ -146,7 +160,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
                     iconSize: 24,
                     elevation: 16,
                     style: const TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 14,
                     ),
                     underline: Container(
@@ -164,11 +178,13 @@ class _AbsenScreenState extends State<AbsenScreen> {
                     Expanded(
                         child: Row(
                           children: [
-                            const Text("From: ", style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),),
+                            Text("From: ", style: GoogleFonts.plusJakartaSans(
+                              textStyle: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xff7BD3EA),
+                              ),
+                            )),
                             Expanded(
                                 child: TextField(
                                   onTap: () async {
@@ -179,10 +195,10 @@ class _AbsenScreenState extends State<AbsenScreen> {
                                                 colorScheme: const ColorScheme.light(
                                                   onPrimary: Colors.white,
                                                   onSurface: Colors.white,
-                                                  primary: Colors.blueAccent
+                                                  primary: Color(0xff7BD3EA)
                                                 ),
                                                 datePickerTheme: const DatePickerThemeData(
-                                                  headerBackgroundColor: Colors.blueAccent,
+                                                  headerBackgroundColor: Color(0xff7BD3EA),
                                                   backgroundColor: Colors.white,
                                                 )
                                               ),
@@ -197,29 +213,35 @@ class _AbsenScreenState extends State<AbsenScreen> {
                                       fromController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
                                     }
                                   },
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black
+                                  style: GoogleFonts.plusJakartaSans(
+                                    textStyle: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xff7BD3EA)
+                                    ),
                                   ),
                                   controller: fromController,
-                                  decoration: const InputDecoration(
+                                  decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(8),
                                     hintText: "Starting from",
-                                    hintStyle: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 16
-                                    ),
+                                    hintStyle: GoogleFonts.plusJakartaSans(
+                                      textStyle: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 16
+                                      ),
+                                    )
                                   ),
                                 ),
                             ),
                             Expanded(
                                 child: Row(
                                   children: [
-                                    const Text("Until: ", style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black
-                                    ),),
+                                    Text("Until: ", style: GoogleFonts.plusJakartaSans(
+                                      textStyle: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0xff7BD3EA)
+                                      ),
+                                    )),
                                     Expanded(
                                         child: TextField(
                                           onTap: () async {
@@ -230,10 +252,10 @@ class _AbsenScreenState extends State<AbsenScreen> {
                                                         colorScheme: const ColorScheme.light(
                                                             onPrimary: Colors.white,
                                                             onSurface: Colors.white,
-                                                            primary: Colors.blueAccent
+                                                            primary: Color(0xff7BD3EA)
                                                         ),
                                                         datePickerTheme: const DatePickerThemeData(
-                                                          headerBackgroundColor: Colors.blueAccent,
+                                                          headerBackgroundColor: Color(0xff7BD3EA),
                                                           backgroundColor: Colors.white,
                                                         )
                                                     ),
@@ -253,13 +275,15 @@ class _AbsenScreenState extends State<AbsenScreen> {
                                               color: Colors.black
                                           ),
                                           controller: toController,
-                                          decoration: const InputDecoration(
+                                          decoration: InputDecoration(
                                             contentPadding: EdgeInsets.all(8),
                                             hintText: "Until",
-                                            hintStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 16
-                                            ),
+                                            hintStyle: GoogleFonts.plusJakartaSans(
+                                              textStyle: TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 16
+                                              ),
+                                            )
                                           ),
                                         ),
                                     ),
@@ -287,21 +311,21 @@ class _AbsenScreenState extends State<AbsenScreen> {
                     ),
                     child: Material(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueAccent,
+                      color: Color(0xff7BD3EA),
                       child: InkWell(
-                        splashColor: Colors.blue,
+                        splashColor: Colors.lightBlueAccent,
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {
                           if(controllerName.text.isEmpty || dropValueCategories == "Pilih le:" || fromController.text.isEmpty || toController.text.isEmpty){
-                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Row(
                                 children: [
                                   Icon(Icons.info_outline, color: Colors.white,),
                                   SizedBox(width: 10,),
-                                  Text("EItss, plis lah le isi form nya"),
+                                  Text("EItss, plis lah le isi form nya", style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
                                 ],
                               ),
-                              backgroundColor: Colors.blueAccent,
+                              backgroundColor: Color(0xff7BD3EA),
                               shape: StadiumBorder(),
                               behavior: SnackBarBehavior.floating,
                             ));
@@ -310,10 +334,12 @@ class _AbsenScreenState extends State<AbsenScreen> {
                             submitAbsen(controllerName.text.toString(), dropValueCategories.toString(), fromController.text, toController.text);
                           }
                         },
-                        child: const Center(
-                          child: Text("Buat request le", style: TextStyle(
-                            color: Colors.white
-                          ),),
+                        child: Center(
+                          child: Text("Buat request le", style: GoogleFonts.plusJakartaSans(
+                            textStyle: TextStyle(
+                                color: Colors.white
+                            ),
+                          )),
                         ),
                       ),
                     ),
@@ -338,7 +364,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
         Navigator.of(context).pop();
         try {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Row(
                 children: [
                   Icon(
@@ -349,7 +375,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
                   Expanded(
                       child: Text(
                         "Data lu dah ke submit le",
-                        style: TextStyle(color: Colors.white),
+                        style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
                       ),
                   ),
                 ],
@@ -363,7 +389,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
         }
         catch (e) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Row(
                 children: [
                   Icon(
@@ -374,7 +400,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
                   Expanded(
                     child: Text(
                       "eitss ada yang error le, coba ge nanti der",
-                      style: TextStyle(color: Colors.white),
+                      style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),
                     ),
                   ),
                 ],
@@ -395,7 +421,7 @@ class _AbsenScreenState extends State<AbsenScreen> {
           const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.blueGrey),),
           Container(
             margin: const EdgeInsets.only(left: 10),
-            child: const Text("Checking the data..."),
+            child: Text("Checking the data...", style: GoogleFonts.plusJakartaSans(textStyle: TextStyle(color: Colors.white)),),
           )
         ],
       ),
